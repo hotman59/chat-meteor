@@ -7,14 +7,15 @@
 </body>
 
 <template name="messages">
-<ul>
-    {{#each messages}}
-  {{>message}}
-  {{/each}}
-</ul>
-<form>
-<textarea rows="1" cols="100"></textarea>
-</form>
+    {{> loginButtons}}
+    <ul>
+      {{#each messages}}
+      {{>message}}
+      {{/each}}
+    </ul>
+      <form>
+        <textarea rows="1" cols="100"></textarea>
+      </form>
 
 </template>
 
