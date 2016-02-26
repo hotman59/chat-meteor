@@ -18,10 +18,20 @@ if (Meteor.isClient) {
 
         Messages.insert({
           message: value,
-          timestamp: new Date()
-            //user.Meteor.userId()
+          timestamp: new Date(),
+          user: Meteor.userId()
         });
       }
+    }
+  });
+
+  Template.message.helpers({
+    user:function(){
+      return Meteor.users.findOne({_id: this.user});
+    },
+
+    time:function(){
+      return this.timestamp;
     }
   });
 
