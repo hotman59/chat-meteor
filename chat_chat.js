@@ -13,6 +13,7 @@ if (Meteor.isClient) {
   Template.messages.events({
     'keypress textarea': function(e, instance) {
       if (e.keyCode == 13) {
+        e.preventDefault();
         var value = instance.find('textarea').value;
         instance.find('textarea').value = '';
 
@@ -31,7 +32,7 @@ if (Meteor.isClient) {
     },
 
     time:function(){
-      return this.timestamp;
+      return moment(this.timestamp).format('h:mm a');
     }
   });
 
